@@ -1,0 +1,43 @@
+export const theme = {
+  colors: {
+    PRIMARY: "#0B2ADA",
+    SECONDARY: "#FCF7FF",
+    BLUE: "#00A0FA",
+    LIGHT_BLUE: "#E0EDF1",
+    DARK: "#1D1927",
+    RED: "#BE0000",
+    WHITE: "#FFFFFF",
+    GREEN: "#00623B",
+    BODY_BG: "#7A7485",
+    TASK_ACTIVE: "rgb(0 160 250 / 0.1)",
+    GREY: "#E8E8E8",
+    LIGHT_GREY: "rgba(34,36,38,.15)",
+    DARK_GREY: "#868586",
+    EXTRA_LIGHT_GREY: "#F9F9F9",
+    YELLOW:"#FF9D1E"
+  },
+  priorityColors: {
+    HIGH: "#FF001C",
+    MEDIUM: "#FF724E",
+    LOW: "#FFBB42",
+  },
+  progressColors: {
+    BACKLOG: "#1D1927",
+    "IN-PROGRESS": "#0086FF",
+    REVIEW: "#00B6CE",
+    COMPLETED: "#00CA99",
+  },
+  fontSize: {
+    EXTRA_SMALL: "0.8em",
+    SMALL: "0.9em",
+    NORMAL: "1em",
+    NORMAL_LARGE: "1.1em",
+    MEDIUM: "1.2em",
+    HEADING: "1.4em",
+    LARGE: "1.5em",
+    MEDIUM_LARGE: "1.6em",
+    EXTRA_LARGE: "1.8em",
+    TITLE: "2em",
+  },
+  BoxShadow: "0px 1px 2px 0px #ccc !important",
+};
