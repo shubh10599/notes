@@ -1,0 +1,22 @@
+.textEditorContainer{
+    border-radius: 5px;
+    overflow: hidden;
+    background: white;
+    height: 80vh;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #46546c;
+}
+.ql-toolbar.ql-snow{
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+.ql-container.ql-snow{
+    height: 15rem;
+    border: none;
+    /* border-bottom: 0; */
+}
+.ql-stroke{
+    color: #5b42b4;
+}
