@@ -2,9 +2,9 @@
     display: flex;
     background: black;
 } */
-.breadcrumbnav{
+.navigationBar{
     background: #303c54;
-    padding: 0.5rem 0;
+    /* padding: 0.5rem 0; */
 }
 .searchbar{
     background: white;
@@ -20,9 +20,15 @@
     padding-left: 0;
     padding-right: inherit;
 }
-.searchinputtext{
-    outline-offset: 0;
-}
 .navbar{
     display: flex;
 }
+/* .breadcrumb{
+    display: flex;
+    align-items: center;
+} */
+/* .navbarContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+} */
