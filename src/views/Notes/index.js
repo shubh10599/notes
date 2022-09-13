@@ -5,7 +5,7 @@ import { QuillEditor } from "../../components/index";
 import parse from "html-react-parser";
 import { useState } from "react";
 import CIcon from "@coreui/icons-react";
-import { cilList } from "@coreui/icons";
+import { cilList, cilOptions } from "@coreui/icons";
 
 const NotesPage = () => {
   const [value, setvalue] = useState("");
@@ -48,7 +48,7 @@ const NotesPage = () => {
               <p>content notes</p>
             </div>
             <div className="noteOfNoteListdate_icon">
-              <CIcon icon={cilList} />
+              <CIcon icon={cilOptions} />
               <p className="saveNoteOnDate">00/00</p>
             </div>
           </div>
@@ -61,7 +61,7 @@ const NotesPage = () => {
               <p>content notes</p>
             </div>
             <div className="noteOfNoteListdate_icon">
-              <CIcon icon={cilList} />
+              <CIcon icon={cilOptions} />
               <p className="saveNoteOnDate">01/00</p>
             </div>
           </div>

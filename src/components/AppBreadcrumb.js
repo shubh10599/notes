@@ -3,21 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import routes from "../routes";
 
-import {
-  CBreadcrumb,
-  CBreadcrumbItem,
-  CButton,
-  CCollapse,
-  CContainer,
-  CForm,
-  CFormInput,
-  CNavbar,
-  CNavbarBrand,
-  CNavbarNav,
-  CNavbarToggler,
-  CNavItem,
-  CNavLink,
-} from "@coreui/react";
+import { CBreadcrumb, CBreadcrumbItem, CFormInput } from "@coreui/react";
 import "./breadcrumb.css";
 
 const AppBreadcrumb = () => {
@@ -47,44 +33,21 @@ const AppBreadcrumb = () => {
   const breadcrumbs = getBreadcrumbs(currentLocation);
 
   return (
-    <CNavbar
-      expand="lg"
-      colorScheme="light"
-      className="w-100 text-light navigationBar"
-    >
-      <CContainer fluid>
-        <CCollapse className="navbar-collapse">
-          <CNavbarNav>
-            <CNavItem>
-              <CNavLink href="#" className="text-light">
-                Home
-              </CNavLink>
-            </CNavItem>
-            <CNavItem>
-              {breadcrumbs.map((breadcrumb, index) => {
-                return (
-                  <CNavLink
-                    href="#"
-                    className="text-light"
-                    {...(breadcrumb.active
-                      ? { active: true }
-                      : { href: breadcrumb.pathname })}
-                    key={index}
-                  >
-                    {breadcrumb.name}
-                  </CNavLink>
-                );
-              })}
-            </CNavItem>
-          </CNavbarNav>
-          <CFormInput
-            type="search"
-            className="me-2 w-50"
-            placeholder="Search"
-          />
-        </CCollapse>
-      </CContainer>
-    </CNavbar>
+    <CBreadcrumb className="m-0 ms-2">
+      <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
+      {breadcrumbs.map((breadcrumb, index) => {
+        return (
+          <CBreadcrumbItem
+            {...(breadcrumb.active
+              ? { active: true }
+              : { href: breadcrumb.pathname })}
+            key={index}
+          >
+            {breadcrumb.name}
+          </CBreadcrumbItem>
+        );
+      })}
+    </CBreadcrumb>
   );
 };
 

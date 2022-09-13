@@ -2,15 +2,9 @@
     display: flex;
     background: black;
 } */
-.navigationBar{
+.navigation-bar{
     background: #303c54;
     /* padding: 0.5rem 0; */
-}
-.searchbar{
-    background: white;
-    padding-left: 0.3rem;
-    /* padding-right: 0.1rem; */
-    border-radius: 5px;
 }
 .header-divider{
     margin: 0;
@@ -23,12 +17,6 @@
 .navbar{
     display: flex;
 }
-/* .breadcrumb{
-    display: flex;
-    align-items: center;
-} */
-/* .navbarContainer{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-} */
+.searchinputtext{
+    width: 20rem;
+}

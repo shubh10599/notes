@@ -1,0 +1,31 @@
+.categorylist{
+    /* flex: 1.5; */
+    width: 50%;
+    border-radius: 10px;
+}
+.category-item{
+    /* background: white; */
+}
+.category-form{
+    display: flex;
+    flex: 2.5;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.category-inputfeild{
+    display: flex;
+    width: max-content;
+    align-items: center;
+    justify-content: center;
+}
+.category-form-label{
+    width: max-content;
+    margin-right: 1rem;
+}
+.category-form-input{
+    width: max-content;
+}
+.category-list-header{
+    
+}

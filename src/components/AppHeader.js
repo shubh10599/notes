@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   CContainer,
+  CFormInput,
   CHeader,
   CHeaderBrand,
   CHeaderDivider,
@@ -21,10 +22,10 @@ const AppHeader = () => {
   const sidebarShow = useSelector((state) => state.sidebarShow);
 
   return (
-    <CHeader position="sticky" className="mb-4">
-      <CContainer fluid>
+    <CHeader position="sticky" className="mb-4 pt-0">
+      <CContainer fluid className=" navigation-bar">
         <CHeaderToggler
-          className="ps-1"
+          className="ps-1 text-light"
           onClick={() => dispatch({ type: "set", sidebarShow: !sidebarShow })}
         >
           <CIcon icon={cilMenu} size="lg" />
@@ -33,11 +34,16 @@ const AppHeader = () => {
           <CIcon icon={logo} height={48} alt="Logo" />
         </CHeaderBrand>
         <CHeaderNav className="ms-3">
-          <AppHeaderDropdown />
+          <CFormInput
+            type="search"
+            className=" border-0 searchinputtext"
+            size="sm"
+            placeholder="Search"
+          />
         </CHeaderNav>
       </CContainer>
       <CHeaderDivider />
-      <CContainer className="p-0">
+      <CContainer>
         <AppBreadcrumb />
       </CContainer>
     </CHeader>
