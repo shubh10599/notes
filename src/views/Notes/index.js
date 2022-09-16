@@ -5,7 +5,7 @@ import { QuillEditor } from "../../components/index";
 import parse from "html-react-parser";
 import { useState } from "react";
 import CIcon from "@coreui/icons-react";
-import { cilList, cilOptions } from "@coreui/icons";
+import { cilOptions } from "@coreui/icons";
 
 const NotesPage = () => {
   const [value, setvalue] = useState("");
@@ -13,18 +13,18 @@ const NotesPage = () => {
   const [displayNote, setdisplayNote] = useState(false);
 
   const showNoteOnEditorpad = () => {
-    // console.log("helo");
     console.log(displayNote);
     setdisplayNote(!displayNote);
     const notes = document.querySelector(".noteOfNoteList");
-    // {
-    // displayNote && notes.classList.add("highlightnote");
-    // }
     if (displayNote == true) {
       notes.classList.add("highlightnote");
     } else {
       notes.classList.remove("highlightnote");
     }
+  };
+  let parseValue;
+  const newaddnote = () => {
+    parseValue = setinfervalue(parse(value));
   };
   return (
     <>
@@ -32,9 +32,8 @@ const NotesPage = () => {
         <CContainer className="noteList">
           <div className="d-grid gap-2">
             <CButton
-              // color="outline-primary"
               className="AddNotebutton fw-semibold fs-5"
-              onClick={() => setinfervalue(parse(value))}
+              onClick={newaddnote}
             >
               Add New Notes
             </CButton>
@@ -70,7 +69,6 @@ const NotesPage = () => {
           <QuillEditor handleChange={setvalue} value={value} />
         </CContainer>
       </div>
-      {/* only for information perpose.. */}
       <div>{infervalue}</div>
     </>
   );
