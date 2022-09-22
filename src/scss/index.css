@@ -13,6 +13,7 @@
     padding: 0.3rem 1rem;
     color: #3c4b64;
     margin: 0.5rem 0;
+    cursor: pointer;
 }
 .highlightnote{
     background: white;

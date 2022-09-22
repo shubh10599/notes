@@ -13,6 +13,7 @@
 }
 .category{
     background-color: transparent;
+    cursor: pointer;
 }
 .select{
     background: white;

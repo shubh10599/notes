@@ -7,9 +7,11 @@ import { useState } from "react";
 import CIcon from "@coreui/icons-react";
 import { cilOptions } from "@coreui/icons";
 
+const fs = [];
+
 const NotesPage = () => {
   const [value, setvalue] = useState("");
-  const [infervalue, setinfervalue] = useState();
+  // const [infervalue, setinfervalue] = useState("deefault");
   const [displayNote, setdisplayNote] = useState(false);
 
   const showNoteOnEditorpad = () => {
@@ -22,10 +24,13 @@ const NotesPage = () => {
       notes.classList.remove("highlightnote");
     }
   };
-  let parseValue;
   const newaddnote = () => {
-    parseValue = setinfervalue(parse(value));
+    console.log(value);
+    parse(value);
+    fs.push(parse(value));
+    console.log(fs);
   };
+
   return (
     <>
       <div className="d-flex">
@@ -64,12 +69,14 @@ const NotesPage = () => {
               <p className="saveNoteOnDate">01/00</p>
             </div>
           </div>
+          {/* {fs.map((i) => (
+            <div>{i}</div>
+          ))} */}
         </CContainer>
         <CContainer className="noteEditor">
-          <QuillEditor handleChange={setvalue} value={value} />
+          <QuillEditor handleChange={setvalue} />
         </CContainer>
       </div>
-      <div>{infervalue}</div>
     </>
   );
 };
