@@ -13,6 +13,7 @@ const NotesPage = () => {
   const [value, setvalue] = useState("");
   // const [infervalue, setinfervalue] = useState("deefault");
   const [displayNote, setdisplayNote] = useState(false);
+  const [notes, setnotes] = useState([]);
 
   const showNoteOnEditorpad = () => {
     console.log(displayNote);
@@ -26,11 +27,20 @@ const NotesPage = () => {
   };
   const newaddnote = () => {
     console.log(value);
-    parse(value);
-    fs.push(parse(value));
-    console.log(fs);
+    const inferValue = parse(value);
+    console.log(inferValue);
+    if (value) {
+      setnotes((note) => [...note, inferValue]);
+      // setvalue("");
+    }
+    // console.log(notes);
+    // fs.push(parse(value));
+    // console.log(fs);
   };
 
+  // const handleChange = (e) => {
+  //   console.log("subimt", e);
+  // };
   return (
     <>
       <div className="d-flex">
@@ -74,9 +84,11 @@ const NotesPage = () => {
           ))} */}
         </CContainer>
         <CContainer className="noteEditor">
-          <QuillEditor handleChange={setvalue} />
+          {/* <QuillEditor HandleChange={setvalue} value={value} /> */}
+          <QuillEditor value={value} />
         </CContainer>
       </div>
+      <div>{value}</div>
     </>
   );
 };

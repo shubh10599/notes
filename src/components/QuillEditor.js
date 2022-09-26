@@ -5,7 +5,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./QuillEditor.css";
 
-const QuillEditor = ({ handleChange, value }) => {
+const QuillEditor = ({ HandleChange, value }) => {
   const modules = {
     toolbar: [
       // [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -34,6 +34,10 @@ const QuillEditor = ({ handleChange, value }) => {
     "link",
     // "image",
   ];
+  const handleChange = (e) => {
+    console.log(e);
+    // HandleChange(e);
+  };
 
   return (
     // <CAccordion>
@@ -43,7 +47,7 @@ const QuillEditor = ({ handleChange, value }) => {
         modules={modules}
         formats={formats}
         value={value}
-        onChange={handleChange}
+        onChange={(e) => console.log(e)}
       ></ReactQuill>
     </div>
     // </CAccordion>
