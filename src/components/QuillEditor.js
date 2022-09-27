@@ -5,7 +5,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./QuillEditor.css";
 
-const QuillEditor = ({ HandleChange, value }) => {
+const QuillEditor = ({ value }) => {
   const modules = {
     toolbar: [
       // [{ header: [1, 2, 3, 4, 5, 6, false] }],

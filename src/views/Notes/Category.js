@@ -9,7 +9,7 @@ import "../../views/category.css";
 
 function Category(props) {
   const [value, setvalue] = useState("");
-  const [display, setdisplay] = useState(false);
+  const [display, setdisplay] = useState(true);
   const [categoried, setcategoried] = useState([]);
 
   const handleSelect = (index) => {
@@ -36,6 +36,12 @@ function Category(props) {
       setvalue("");
     }
     // console.log(categoried);
+  };
+  const changecategory = (index) => {
+    // console.log(categoried[index]);
+    const editCategory = categoried[index];
+    setvalue(editCategory.value);
+    // console.log(value);
   };
   return (
     <CContainer className="w-50">
@@ -71,7 +77,11 @@ function Category(props) {
           >
             <p className="m-0">{category.value}</p>
             <div className="categroy-icons">
-              <CIcon icon={cilPencil} className="category-edit-icon"></CIcon>
+              <CIcon
+                icon={cilPencil}
+                className="category-edit-icon"
+                onClick={() => changecategory(index)}
+              ></CIcon>
               <CIcon icon={cilTrash}></CIcon>
             </div>
           </div>
