@@ -15,23 +15,27 @@ const NotesPage = () => {
   const [displayNote, setdisplayNote] = useState(false);
   const [notes, setnotes] = useState([]);
 
-  const showNoteOnEditorpad = () => {
+  const showNoteOnEditorpad = (index) => {
     console.log(displayNote);
+    console.log(index);
     setdisplayNote(!displayNote);
-    const notes = document.querySelector(".noteOfNoteList");
+    const Notes = document.querySelectorAll(".noteOfNoteList");
     if (displayNote == true) {
-      notes.classList.add("highlightnote");
+      Notes[index].classList.add("highlightnote");
+      const updateNote = notes[index].props.children;
+      console.log(updateNote);
+      setvalue(updateNote);
     } else {
-      notes.classList.remove("highlightnote");
+      Notes[index].classList.remove("highlightnote");
     }
   };
   const newaddnote = () => {
     console.log(value);
     const inferValue = parse(value);
-    console.log(inferValue);
+    // console.log(inferValue.props.children);
     if (value) {
       setnotes((note) => [...note, inferValue]);
-      // setvalue("");
+      setvalue("");
     }
     // console.log(notes);
     // fs.push(parse(value));
@@ -53,19 +57,22 @@ const NotesPage = () => {
               Add New Notes
             </CButton>
           </div>
-          <div
-            className="noteOfNoteList d-flex justify-content-between border-bottom"
-            onClick={showNoteOnEditorpad}
-          >
-            <div className="noteOfNoteListContent">
-              <h4>header content</h4>
-              <p>content notes</p>
+          {notes.map((note, index) => (
+            <div
+              key={index}
+              className="noteOfNoteList d-flex justify-content-between border-bottom"
+              onClick={() => showNoteOnEditorpad(index)}
+            >
+              <div className="noteOfNoteListContent">
+                <h4>header content</h4>
+                <p>{note}</p>
+              </div>
+              <div className="noteOfNoteListdate_icon">
+                <CIcon icon={cilOptions} />
+                <p className="saveNoteOnDate">00/00</p>
+              </div>
             </div>
-            <div className="noteOfNoteListdate_icon">
-              <CIcon icon={cilOptions} />
-              <p className="saveNoteOnDate">00/00</p>
-            </div>
-          </div>
+          ))}
           <div
             className="noteOfNoteList d-flex justify-content-between border-bottom"
             onClick={showNoteOnEditorpad}
@@ -84,8 +91,8 @@ const NotesPage = () => {
           ))} */}
         </CContainer>
         <CContainer className="noteEditor">
-          {/* <QuillEditor HandleChange={setvalue} value={value} /> */}
-          <QuillEditor value={value} />
+          <QuillEditor HandleChange={setvalue} value={value} />
+          {/* <QuillEditor value={value} /> */}
         </CContainer>
       </div>
       <div>{value}</div>
