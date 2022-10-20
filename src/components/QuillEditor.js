@@ -41,14 +41,14 @@ const QuillEditor = ({ HandleChange, value }) => {
 
   return (
     // <CAccordion>
-    <div className="textEditorContainer" onMouseMove={console.log("hii")}>
+    <div className="textEditorContainer" onMouseEnter={console.log("hii")}>
       <ReactQuill
         theme="snow"
         modules={modules}
         formats={formats}
         value={value}
         onChange={handleChange}
-        onMouseMove={console.log("hello")}
+        onFocus={console.log("hello")}
       ></ReactQuill>
     </div>
     // </CAccordion>

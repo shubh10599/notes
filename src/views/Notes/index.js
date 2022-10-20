@@ -6,40 +6,60 @@ import parse from "html-react-parser";
 import { useState } from "react";
 import CIcon from "@coreui/icons-react";
 import { cilOptions } from "@coreui/icons";
-
-const fs = [];
+import Category from "./Category";
+import { useSelector } from "react-redux";
 
 const NotesPage = () => {
+  const state = useSelector((state) => state.reducer.categoried);
+  console.log(state.length); // length karin lai laisu.
+  // console.log(state[state.length - 1].value);
   const [value, setvalue] = useState("");
   // const [infervalue, setinfervalue] = useState("deefault");
   const [displayNote, setdisplayNote] = useState(false);
   const [notes, setnotes] = useState([]);
+  const [currentEditindex, setcurrentEditindex] = useState(-1);
 
-  const showNoteOnEditorpad = (index) => {
+  const Notes = document.querySelectorAll(".noteOfNoteList");
+
+  const showNoteOnEditorpad = (x, index) => {
+    console.log(x);
+    // setdisplayNote(false);
     console.log(displayNote);
     console.log(index);
+    setcurrentEditindex(index);
     setdisplayNote(!displayNote);
-    const Notes = document.querySelectorAll(".noteOfNoteList");
-    if (displayNote == true) {
+    const updateNote = notes[index].props.children; //remove class..karavan badha ahi kem ke hu jya click karis enej lagu padse naki badhane ane pachhi remove thai jase.. etle.
+    if (displayNote === true) {
       Notes[index].classList.add("highlightnote");
-      const updateNote = notes[index].props.children;
-      console.log(updateNote);
       setvalue(updateNote);
+      // console.log(value);
+      console.log(updateNote);
     } else {
       Notes[index].classList.remove("highlightnote");
+      setvalue("");
     }
+    // aafunction khali valune undar mokalse..
   };
   const newaddnote = () => {
     console.log(value);
-    const inferValue = parse(value);
     // console.log(inferValue.props.children);
-    if (value) {
-      setnotes((note) => [...note, inferValue]);
-      setvalue("");
+    if (currentEditindex === -1) {
+      if (value !== "<p><br><p>") {
+        const inferValue = {
+          category: state[state.length - 1].value,
+          value: parse(value),
+        };
+        setnotes((note) => [...note, inferValue]);
+        setvalue("");
+      }
+    } else {
+      // console.log(index);
+      // setnotes((note) => [...note, note[index]]);
     }
     // console.log(notes);
     // fs.push(parse(value));
     // console.log(fs);
+    setcurrentEditindex(-1);
   };
 
   // const handleChange = (e) => {
@@ -61,11 +81,11 @@ const NotesPage = () => {
             <div
               key={index}
               className="noteOfNoteList d-flex justify-content-between border-bottom"
-              onClick={() => showNoteOnEditorpad(index)}
+              onClick={() => showNoteOnEditorpad("select", index)}
             >
               <div className="noteOfNoteListContent">
-                <h4>header content</h4>
-                <p>{note}</p>
+                <h4>{note.category}</h4>
+                <p>{note.value}</p>
               </div>
               <div className="noteOfNoteListdate_icon">
                 <CIcon icon={cilOptions} />
@@ -95,7 +115,7 @@ const NotesPage = () => {
           {/* <QuillEditor value={value} /> */}
         </CContainer>
       </div>
-      <div>{value}</div>
+      <div>{currentEditindex}</div>
     </>
   );
 };
