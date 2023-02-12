@@ -12,10 +12,16 @@ const _nav = [
   // },
   {
     component: CNavGroup,
-    name: "Notes",
+    name: "BASE",
     to: "/",
-    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    icon: <CIcon customClassName="nav-icon" />,
     items: [
+      {
+        component: CNavItem,
+        name: "Notes",
+        to: "/notes",
+        icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+      },
       {
         component: CNavItem,
         name: "Category",

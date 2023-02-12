@@ -7,7 +7,13 @@ const routes = [
   { path: "/", exact: true, name: "Home" },
   // { path: "/note", name: "base", exact: true },
   { path: "/notes", name: "Notes", element: Notes },
-  { path: "/notes/category", name: "Category", element: NotesCategory },
+  {
+    path: "/notes/category",
+    name: "Category",
+    element: NotesCategory,
+    // value: { value },
+  },
 ];
+// console.log(value);
 
 export default routes;
